@@ -48,7 +48,7 @@ userRoute.post("/login", async (req, res) => {
 });
 
 userRoute.get("/purchased-courses", verifyUserToken, async (req, res) => {
-    const { id } = req.user;
+    const id = req.user.id;
     if (!id) {
         return res.status(401).json({
             message: "Unauthorized",

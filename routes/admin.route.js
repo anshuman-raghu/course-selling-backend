@@ -34,7 +34,7 @@ adminRoute.post("/login", async (req, res) => {
     }
     const token = jwt.sign(
         {
-            _id: admin._id,
+            id: admin._id,
         },
         process.env.JWT_ADMIN_SECRET
     );
@@ -52,7 +52,7 @@ adminRoute.post("/create-course", verifyAdminToken, async (req, res) => {
             message: "Unauthorized",
         });
     }
-    await courseModel.create({
+    const course = await courseModel.create({
         courseName,
         description,
         image,
@@ -61,6 +61,7 @@ adminRoute.post("/create-course", verifyAdminToken, async (req, res) => {
     });
     res.status(200).json({
         message: "Course created successfully",
+        course,
     });
 });
 
