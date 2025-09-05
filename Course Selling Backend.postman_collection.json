@@ -1,0 +1,358 @@
+{
+	"info": {
+		"_postman_id": "face6790-fdc9-4905-a89d-123bbbdfad7a",
+		"name": "Course Selling Backend",
+		"description": "Postman collection for all API routes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38671131"
+	},
+	"item": [
+		{
+			"name": "User Signup",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test233user\",\n    \"password\": \"test23pass\",\n    \"name\": \"Test 234rUser\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/user/signup",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"test23user\",\n  \"password\": \"test23pass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/user/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Purchased Courses",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/user/purchased-courses",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"purchased-courses"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"adminuser\",\n  \"password\": \"adminpass\",\n  \"name\": \"Admin User\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin/signup",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"adminuser\",\n  \"password\": \"adminpass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Create Course",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"courseName\": \"Course 21\",\n  \"description\": \"Description is big\",\n  \"image\": \"image-url\",\n  \"price\": 10000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin/create-course",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"create-course"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Update Course",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"courseName\": \"Updated Course\",\n  \"description\": \"Updated Description\",\n  \"image\": \"new-image-url\",\n  \"price\": 150\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/admin/update-course/68ba870b2156ef76d08f80b5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"update-course",
+						"68ba870b2156ef76d08f80b5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Delete Course",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/admin/delete-course/68ba86cedb7b302bded1d1cd",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"delete-course",
+						"68ba86cedb7b302bded1d1cd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Get Courses",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/admin/courses",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course Preview",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/course/preview",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"course",
+						"preview"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course Purchase",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"courseId\": \"<courseId>\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/course/purchase",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"course",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
